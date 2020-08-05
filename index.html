@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    
+</head>
+<body>
+    <div class="mask">
+        <h1 class='play'>开始</h1>
+    </div>
+    <script src="./js/snakeMap.js"></script>
+    <script src="./js/SnakeFood.js"></script>
+    <script src="./js/snake.js"></script>
+    <script>
+        let oButton = document.querySelector('.mask')
+        oButton.onclick=function(){
+            snake.updata(snakeFood)
+        }
+        let snakeMap = new SnakeMap();
+        let snakeFood = new SnakeFood(100,100,'./images/body.png',snakeMap);
+        snakeFood.render()
+        let obj ={
+            width: 100,
+            height:100,
+            bodyImage:'./images/body.png',
+            headImage:'./images/head.png',
+            snakeMap:snakeMap
+        }
+        let snake = new Snake(obj);
+        console.log(snake.body.length);
+        snake.render()
+        
+    </script>
+</body>
+</html>
